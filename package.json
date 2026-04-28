@@ -1,0 +1,24 @@
+{
+  "name": "bullmq-tut-1",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "worker:email": "node workers/emailWorker.js",
+    "worker:report": "node workers/reportWorker.js"
+  },
+  "dependencies": {
+    "bullmq": "^5.76.2",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "ioredis": "^5.10.1",
+    "uuid": "^14.0.0"
+  }
+}
