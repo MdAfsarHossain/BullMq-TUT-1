@@ -1,6 +1,11 @@
 const { Worker } = require('bullmq');
-const { connection } = require('../queues/queueConfig');
+const { connection } = require('../queues/queueConfig.js');
 require('dotenv').config();
+
+console.log(connection);
+console.log(process.env.EMAIL_QUEUE);
+
+
 
 // Email sending simulation function
 const sendEmail = async (emailData) => {

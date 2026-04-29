@@ -3,11 +3,20 @@ const Redis = require('ioredis');
 require('dotenv').config();
 
 // Redis connection
-const connection  = new Redis({
-    host: process.env.REDIS_HOST,
-    port: process.env.REDIS_PORT,
-    maxRetriesPerRequest: null,
-})
+// const connection  = new Redis({
+//     host: process.env.REDIS_HOST,
+//     port: process.env.REDIS_PORT,
+//     maxRetriesPerRequest: null,
+// })
+
+// Create Redis connection directly
+const connection = new Redis({
+  host: process.env.REDIS_HOST || 'localhost',
+  port: process.env.REDIS_PORT || 6379,
+  maxRetriesPerRequest: null,
+});
+
+// console.log(connection);
 
 // Email Queue
 const emailQueue = new Queue(process.env.EMAIL_QUEUE, {
@@ -37,4 +46,4 @@ const reportQueue = new Queue(process.env.REPORT_QUEUE, {
 //     reportQueue
 // }
 
-module.exports = {emailQueue, reportQueue};
+module.exports = {connection, emailQueue, reportQueue};

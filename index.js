@@ -72,20 +72,20 @@ app.get('/api/health', (req, res) => {
 });
 
 
-// ইমেইল এন্ডপয়েন্ট
+// Email endpoint
 app.post('/api/email/send', addEmailJob);
 
-// রিপোর্ট এন্ডপয়েন্ট
+// Report endpoint
 app.post('/api/report/generate', addReportJob);
 
-// জব স্ট্যাটাস এন্ডপয়েন্ট
+// Job status endpoint
 app.get('/api/job/:queueName/:jobId', getJobStatus);
 
-// সব জব দেখা
+// All jobs
 // app.get('/api/jobs/:queueName/:status?', getAllJobs);
 app.get('/api/jobs/:queueName/:status', getAllJobs);
 
-// কুইন ক্লিন
+// Queue clean
 app.delete('/api/queue/:queueName/clean', cleanQueue);
 
 
@@ -125,3 +125,5 @@ app.listen(PORT, () => {
   ═══════════════════════════════════════════════
   `);
 });
+
+// afsarhossain@afsarhossain-MS-7D48:~/AfsarHossain/Dec25/bullMQ-tut-1$ npm run worker:email
