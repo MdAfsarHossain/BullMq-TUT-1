@@ -5,7 +5,10 @@ require('dotenv').config();
 // console.log(connection);
 // console.log(process.env.EMAIL_QUEUE);
 
-
+// Debug logs
+console.log('Connection type:', typeof connection);
+console.log('Is Redis instance?', connection && connection.status);
+console.log('Email Queue Name:', process.env.EMAIL_QUEUE);
 
 // Email sending simulation function
 const sendEmail = async (emailData) => {
@@ -80,6 +83,9 @@ console.log('📧 Email Worker started...');
 // Graceful shutdown
 const closeWorker = async () => {
   await emailWorker.close();
+  if (connection && connection.quit) {
+    await connection.quit();
+  }
   console.log('📧 Email Worker closed');
 };
 
