@@ -2,13 +2,6 @@ const {Queue} = require('bullmq')
 const Redis = require('ioredis');
 require('dotenv').config();
 
-// Redis connection
-// const connection  = new Redis({
-//     host: process.env.REDIS_HOST,
-//     port: process.env.REDIS_PORT,
-//     maxRetriesPerRequest: null,
-// })
-
 // Create Redis connection directly
 const connection = new Redis({
   host: process.env.REDIS_HOST || 'localhost',
@@ -16,7 +9,6 @@ const connection = new Redis({
   maxRetriesPerRequest: null,
 });
 
-// console.log(connection);
 
 // Email Queue
 const emailQueue = new Queue(process.env.EMAIL_QUEUE, {

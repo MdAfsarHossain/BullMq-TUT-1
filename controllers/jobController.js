@@ -137,6 +137,7 @@ const getAllJobs = async (req, res) => {
     const queue = queueName === "email" ? emailQueue : reportQueue;
 
     let jobs;
+
     switch (status) {
       case "waiting":
         jobs = await queue.getWaiting();
@@ -165,6 +166,7 @@ const getAllJobs = async (req, res) => {
 
     res.json({
       success: true,
+      message: "All jobs fetched successfully",
       count: jobSummaries.length,
       jobs: jobSummaries,
     });

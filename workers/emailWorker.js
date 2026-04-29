@@ -2,8 +2,8 @@ const { Worker } = require('bullmq');
 const { connection } = require('../queues/queueConfig.js');
 require('dotenv').config();
 
-console.log(connection);
-console.log(process.env.EMAIL_QUEUE);
+// console.log(connection);
+// console.log(process.env.EMAIL_QUEUE);
 
 
 
